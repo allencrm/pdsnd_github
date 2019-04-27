@@ -13,7 +13,7 @@ bikeshare.py
 ### Credits
 1. Wes McKinney: Python for Data Analysis, 2nd edition.  O'Reilly publishing, 2018.
 
-2. stackoverflow.com for:
-  * Terminating a Python script
-  * Re-assignment in Pandas: Copy or view?
-  * How to print without newline or space?
+2. consulted stackoverflow.com for these questions:
+    * Terminating a Python script
+    * Re-assignment in Pandas: Copy or view?
+    * How to print without newline or space?
