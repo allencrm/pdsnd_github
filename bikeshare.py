@@ -2,7 +2,6 @@ import sys
 import time
 import datetime
 import pandas as pd
-import numpy as np
 
 # city datafile names
 CITY_DATA = { 'chicago': 'chicago.csv',
@@ -226,6 +225,14 @@ def show_raw_data(df):
     print('-'*40)
 
 
+def again():
+    ans = ''
+    while ans == '':
+        print("\nWould you like to load more data? 'yes' if yes, or cntl-D or 'quit':")
+        ans = user_input()
+        return ans
+
+
 def main():
     load_data_files()
     while True:
@@ -239,11 +246,7 @@ def main():
         user_stats(df)
         show_raw_data(df)
 
-        ans = ''
-        while ans == '':
-            print("\nWould you like to load more data? 'yes' if yes, or cntl-D or 'quit':")
-            ans = user_input()
-        if ans != 'yes':
+        if again() != 'yes':
             break
 
 
