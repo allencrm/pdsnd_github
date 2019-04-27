@@ -44,19 +44,20 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+
+    # user to choose a city
     city = ''
     while city not in CITY_DATA:
         print("Enter city (one of: {}), or cntl-D or 'quit':".format(list(CITY_DATA.keys())))
         city = user_input()
             
-    # TO DO: get user input for month (all, january, february, ... , june)
+    # user to choose a month (january, february, etc. or 'all')
     month = ''
     while month not in months:
         print("Enter month (one of: {}), or cntl-D or 'quit':".format(months))
         month = user_input()
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    # user to choose day of week (sunday, monday, tuesday, etc. or 'all')
     day = ''
     while day not in days_of_week:
         print("Enter day of week (one of: {}), or cntl-D or 'quit':".format(days_of_week))
@@ -122,14 +123,14 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
+    # display the most common month
     # NOTE: the month in the df 'month' column is 1-based; the 'months' list is 0-based.
     print("Most common month: {}".format(months[df['month'].mode()[0]-1].title()))
 
-    # TO DO: display the most common day of week
+    # display the most common day of week
     print("Most common day of week: {}".format(df['day_of_week'].mode()[0]))
 
-    # TO DO: display the most common start hour
+    # display the most common start hour
     print("Most common start hour: {}".format(df['Start Hour'].mode()[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -142,13 +143,13 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
+    # display most commonly used start station
     print("Most commonly used start station: {}".format(df['Start Station'].mode()[0]))
 
-    # TO DO: display most commonly used end station
+    # display most commonly used end station
     print("Most commonly used end station: {}".format(df['End Station'].mode()[0]))
 
-    # TO DO: display most frequent combination of start station and end station trip
+    # display most frequent combination of start station and end station trip
     # NOTE: I think this requires combining or concatenating the two columns to produce something on which .mode() can be invoked.
     # I could not figure this out.
 
@@ -162,10 +163,10 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
+    # display total travel time
     print("Total travel time: {}".format(datetime.timedelta(seconds=float(df['Trip Duration'].sum()))))
 
-    # TO DO: display mean travel time
+    # display mean travel time
     print("Average travel time per trip: {}".format(datetime.timedelta(seconds=float(df['Trip Duration'].mean()))))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -178,14 +179,14 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
+    # Display counts of user types
     print("Count of user types:\n{0}\n".format(df['User Type'].value_counts()))
 
-    # TO DO: Display counts of gender
+    # Display counts of gender
     if 'Gender' in df:
         print("Count of genders:\n{0}\n".format(df['Gender'].value_counts()))
 
-    # TO DO: Display earliest, most recent, and most common year of birth
+    # Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df:
         print("Birth year:\nearliest={0}\nmost recent={1}\nmost common={2}".format(
             int(df['Birth Year'].min()),
